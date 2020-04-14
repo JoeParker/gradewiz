@@ -5,20 +5,20 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.joeparker.gradewiz.database.dao.WordDao
-import com.joeparker.gradewiz.database.entity.Word
+import com.joeparker.gradewiz.database.dao.GradeDao
+import com.joeparker.gradewiz.database.entity.Grade
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Database(
     entities = [
-        Word::class
+        Grade::class
     ],
-    version = 1
+    version = 2
 )
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun wordDao(): WordDao
+    abstract fun gradeDao(): GradeDao
 
     companion object {
         // Singleton
@@ -47,17 +47,15 @@ abstract class AppDatabase : RoomDatabase() {
             super.onCreate(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    populateDatabase(database.wordDao())
+                    populateDatabase(database.gradeDao())
                 }
             }
         }
 
-        suspend fun populateDatabase(wordDao: WordDao) {
-            wordDao.deleteAll()
+        suspend fun populateDatabase(gradeDao: GradeDao) {
+            gradeDao.deleteAll()
 
-            // Add sample words
-//            wordDao.insert(Word(1,"Hello"))
-//            wordDao.insert(Word(2,"World!"))
+            // Add sample grades...
         }
     }
 
