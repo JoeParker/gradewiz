@@ -16,7 +16,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     val allWords: LiveData<List<Word>>
 
     init {
-        repository = WordRepository(AppDatabase.getDatabase(application).wordDao())
+        repository = WordRepository(AppDatabase.getDatabase(application, viewModelScope).wordDao())
         allWords = repository.allWords
     }
 
