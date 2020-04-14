@@ -9,14 +9,12 @@ import com.joeparker.gradewiz.database.dao.WordDao
 import com.joeparker.gradewiz.database.entity.Word
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import java.util.*
 
 @Database(
     entities = [
         Word::class
     ],
-    version = 1,
-    exportSchema = false
+    version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -34,6 +32,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "database"
                 )
+                .fallbackToDestructiveMigration()
                 .addCallback(AppDatabaseCallback(scope))
                 .build()
                 INSTANCE = instance
@@ -57,8 +56,8 @@ abstract class AppDatabase : RoomDatabase() {
             wordDao.deleteAll()
 
             // Add sample words
-            wordDao.insert(Word(0,"Hello"))
-            wordDao.insert(Word(1,"World!"))
+//            wordDao.insert(Word(1,"Hello"))
+//            wordDao.insert(Word(2,"World!"))
         }
     }
 
