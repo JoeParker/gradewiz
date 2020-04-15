@@ -46,5 +46,10 @@ class GradeListAdapter internal constructor(context: Context, owner: ViewModelSt
         notifyDataSetChanged()
     }
 
+    internal fun getTotal(): Float {
+        val marks: List<Float> = this.grades.map { it.mark }
+        return marks.sum()
+    }
+
     override fun getItemCount() = grades.size
 }

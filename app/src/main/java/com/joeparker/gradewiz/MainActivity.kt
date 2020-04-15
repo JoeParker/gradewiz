@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -38,6 +39,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, NewGradeActivity::class.java)
             startActivityForResult(intent, newGradeActivityRequestCode)
         }
+
+        val validation = findViewById<TextView>(R.id.validation)
+        println(adapter.getTotal())
+        validation.text = adapter.getTotal().toString() // TODO
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

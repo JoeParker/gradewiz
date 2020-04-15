@@ -12,5 +12,7 @@ data class Module(
     @ColumnInfo(name = "code")
     val code: String?,
     @ColumnInfo(name = "name")
-    val name: String?
+    val name: String?,
+    @ColumnInfo(name = "credits")
+    val credits: Int
 )

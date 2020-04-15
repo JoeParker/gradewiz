@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
         Grade::class,
         Module::class
     ],
-    version = 1
+    version = 2
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -61,7 +61,7 @@ abstract class AppDatabase : RoomDatabase() {
             moduleDao.deleteAll()
 
             // Add sample modules...
-            moduleDao.insert(Module(code = "CSC101", name = "Computer Programming"))
+            moduleDao.insert(Module(code = "CSC101", name = "Computer Programming", credits = 20))
 
             // Add sample grades...
             gradeDao.insert(Grade(note = "Coursework Assignment 1", mark = 62.0f, weighting = 25.0f))
