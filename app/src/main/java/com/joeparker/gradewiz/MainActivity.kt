@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == newGradeActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.getStringExtra(NewGradeActivity.EXTRA_REPLY)?.let {
                 val grade = Grade(name = it, mark = 70.0f, weighting = 50.0f)
-                gradeViewModel.insert(grade)
+                gradeViewModel.addGrade(grade)
             }
         } else {
             Toast.makeText(

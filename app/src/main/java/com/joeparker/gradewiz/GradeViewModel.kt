@@ -21,7 +21,7 @@ class GradeViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     // Non-blocking
-    fun insert(grade: Grade) = viewModelScope.launch(Dispatchers.IO) {
+    fun addGrade(grade: Grade) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertGrade(grade)
     }
 }

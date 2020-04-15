@@ -23,8 +23,8 @@ class NewGradeActivity : AppCompatActivity() {
             if (TextUtils.isEmpty(editGradeView.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
-                val word = editGradeView.text.toString()
-                replyIntent.putExtra(EXTRA_REPLY, word)
+                val text = editGradeView.text.toString()
+                replyIntent.putExtra(EXTRA_REPLY, text)
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()
