@@ -1,10 +1,7 @@
 package com.joeparker.gradewiz.database.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.joeparker.gradewiz.database.entity.Grade
 
 @Dao
@@ -18,4 +15,7 @@ interface GradeDao {
 
     @Query("DELETE FROM grades")
     suspend fun deleteAll()
+
+    @Delete
+    suspend fun delete(grade: Grade)
 }

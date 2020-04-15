@@ -24,4 +24,12 @@ class GradeViewModel(application: Application) : AndroidViewModel(application) {
     fun addGrade(grade: Grade) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertGrade(grade)
     }
+
+    fun deleteGrade(grade: Grade) = viewModelScope.launch(Dispatchers.IO) {
+        repository.deleteGrade(grade)
+    }
+
+    fun deleteAllGrades() = viewModelScope.launch(Dispatchers.IO) {
+        repository.deleteAll()
+    }
 }

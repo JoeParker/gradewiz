@@ -11,4 +11,12 @@ class GradeRepository(private val gradeDao: GradeDao) {
     suspend fun insertGrade(grade: Grade) {
         gradeDao.insert(grade)
     }
+
+    suspend fun deleteGrade(grade: Grade) {
+        gradeDao.delete(grade)
+    }
+
+    suspend fun deleteAll() {
+        gradeDao.deleteAll()
+    }
 }
