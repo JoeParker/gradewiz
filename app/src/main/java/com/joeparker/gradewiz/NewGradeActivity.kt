@@ -27,9 +27,6 @@ class NewGradeActivity : AppCompatActivity() {
             if (TextUtils.isEmpty(editGradeMarkView.text) || TextUtils.isEmpty(editGradeWeightingView.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
-//                val note = editGradeNoteView.text.toString()
-//                val mark = editGradeMarkView.text.toString()
-//                val weighting = editGradeWeightingView.text.toString()
                 val data = arrayListOf(
                     editGradeNoteView.text.toString(),
                     editGradeMarkView.text.toString(),
