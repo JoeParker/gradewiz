@@ -6,7 +6,7 @@ import com.joeparker.gradewiz.database.entity.Grade
 
 class GradeRepository(private val gradeDao: GradeDao) {
 
-    val allGrades: LiveData<List<Grade>> = gradeDao.getAllAlphabetised()
+    val allGrades: LiveData<List<Grade>> = gradeDao.getAll()
 
     suspend fun insertGrade(grade: Grade) {
         gradeDao.insert(grade)

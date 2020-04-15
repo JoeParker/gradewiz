@@ -44,8 +44,8 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == newGradeActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(NewGradeActivity.EXTRA_REPLY)?.let {
-                val grade = Grade(name = it, mark = 70.0f, weighting = 50.0f)
+            data?.extras?.getStringArrayList(NewGradeActivity.EXTRA_REPLY)?.let {
+                val grade = Grade(note = it[0], mark = it[1].toFloat(), weighting = it[2].toFloat())
                 gradeViewModel.addGrade(grade)
             }
         } else {

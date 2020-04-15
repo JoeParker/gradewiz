@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
         Grade::class,
         Module::class
     ],
-    version = 2
+    version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -64,9 +64,9 @@ abstract class AppDatabase : RoomDatabase() {
             moduleDao.insert(Module(code = "CSC101", name = "Computer Programming"))
 
             // Add sample grades...
-            gradeDao.insert(Grade(name = "Coursework Assignment 1", mark = 62.0f, weighting = 25.0f))
-            gradeDao.insert(Grade(name = "Coursework Assignment 2", mark = 71.5f, weighting = 25.0f))
-            gradeDao.insert(Grade(name = "Exam", mark = 58.0f, weighting = 50.0f))
+            gradeDao.insert(Grade(note = "Coursework Assignment 1", mark = 62.0f, weighting = 25.0f))
+            gradeDao.insert(Grade(note = "Coursework Assignment 2", mark = 71.5f, weighting = 25.0f))
+            gradeDao.insert(Grade(note = "Exam", mark = 58.0f, weighting = 50.0f))
         }
     }
 

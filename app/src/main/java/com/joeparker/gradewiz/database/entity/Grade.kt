@@ -9,8 +9,8 @@ import androidx.room.PrimaryKey
 data class Grade(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    @ColumnInfo(name = "name")
-    val name: String?,
+    @ColumnInfo(name = "note")
+    val note: String?,
     @ColumnInfo(name = "mark")
     val mark: Float,
     @ColumnInfo(name = "weighting")

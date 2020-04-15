@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">GradeWiz</string>
     <string name="add_grade">Add Grade</string>
-    <string name="hint_grade">Grade…</string>
+    <string name="hint_grade_note">Note (Optional)</string>
+    <string name="hint_grade_mark">Mark</string>
+    <string name="hint_grade_weighting">Weighting</string>
     <string name="button_save">Save</string>
-    <string name="empty_not_saved">Word not saved because it is empty.</string>
+    <string name="empty_not_saved">Grade not saved</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

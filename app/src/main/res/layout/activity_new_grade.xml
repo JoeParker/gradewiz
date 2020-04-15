@@ -1,16 +1,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/edit_grade"
+        android:id="@+id/edit_grade_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="0dp"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_grade"
+        app:fontFamily="sans-serif-light"
+        android:hint="@string/hint_grade_note"
         android:inputType="textAutoComplete"
+        android:layout_margin="@dimen/big_padding"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edit_grade_mark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="0dp"
+        app:fontFamily="sans-serif-light"
+        android:hint="@string/hint_grade_mark"
+        android:inputType="numberDecimal"
+        android:layout_margin="@dimen/big_padding"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edit_grade_weighting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="0dp"
+        app:fontFamily="sans-serif-light"
+        android:hint="@string/hint_grade_weighting"
+        android:inputType="numberDecimal"
         android:layout_margin="@dimen/big_padding"
         android:textSize="18sp" />
 

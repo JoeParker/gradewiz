@@ -22,7 +22,7 @@ class GradeListAdapter internal constructor(context: Context) : RecyclerView.Ada
 
     override fun onBindViewHolder(holder: GradeViewHolder, position: Int) {
         val current = grades[position]
-        holder.gradeItemView.text = current.name
+        holder.gradeItemView.text = current.note+current.mark+current.weighting
     }
 
     internal fun setGrades(grades: List<Grade>) {
