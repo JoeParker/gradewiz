@@ -32,11 +32,13 @@ class MainActivity : AppCompatActivity() {
         // Observe livedata and update on change
         gradeViewModel.allGrades.observe(this, Observer { grades ->
             grades?.let { adapter.setGrades(it) }
+            val total = grades?.map { it.mark }!!.sum()
+            findViewById<TextView>(R.id.validation).text = total.toString()
         })
 
-        gradeViewModel.total.observe(this, Observer { total ->
-            total?.let { findViewById<TextView>(R.id.validation).text = it.toString() }
-        })
+//        gradeViewModel.total.observe(this, Observer { total ->
+//            total?.let { findViewById<TextView>(R.id.validation).text = it.toString() }
+//        })
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {

@@ -48,6 +48,6 @@ class GradeListAdapter internal constructor(context: Context, owner: ViewModelSt
         println(this.total)
         notifyDataSetChanged()
     }
-    
+
     override fun getItemCount() = grades.size
 }
