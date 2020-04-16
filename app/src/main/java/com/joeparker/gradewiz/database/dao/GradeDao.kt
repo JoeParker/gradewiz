@@ -18,4 +18,7 @@ interface GradeDao {
 
     @Delete
     suspend fun delete(grade: Grade)
+
+    @Query("SELECT SUM(mark) FROM grades")
+    fun getTotal(): LiveData<Float>
 }

@@ -15,12 +15,13 @@ class GradeListAdapter internal constructor(context: Context, owner: ViewModelSt
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var grades = emptyList<Grade>()
+    private var total = 0.0f
 
     private var gradeViewModel: GradeViewModel = ViewModelProvider(owner).get(GradeViewModel::class.java)
 
     inner class GradeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val gradeItemView: TextView = itemView.findViewById(R.id.textView)
-        val gradeDeleteView: FloatingActionButton = itemView.findViewById(R.id.delete)
+        val gradeDeleteButton: FloatingActionButton = itemView.findViewById(R.id.delete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GradeViewHolder =
@@ -36,20 +37,17 @@ class GradeListAdapter internal constructor(context: Context, owner: ViewModelSt
         val gradeText = noteText + ":  " + current.mark + "%"
         holder.gradeItemView.text = gradeText
 
-        holder.gradeDeleteView.setOnClickListener {
+        holder.gradeDeleteButton.setOnClickListener {
             gradeViewModel.deleteGrade(current)
         }
     }
 
     internal fun setGrades(grades: List<Grade>) {
         this.grades = grades
+        this.total = this.grades.map { it.mark }.sum()
+        println(this.total)
         notifyDataSetChanged()
     }
-
-    internal fun getTotal(): Float {
-        val marks: List<Float> = this.grades.map { it.mark }
-        return marks.sum()
-    }
-
+    
     override fun getItemCount() = grades.size
 }

@@ -14,10 +14,12 @@ class GradeViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: GradeRepository
     val allGrades: LiveData<List<Grade>>
+    val total: LiveData<Float>
 
     init {
         repository = GradeRepository(AppDatabase.getDatabase(application, viewModelScope).gradeDao())
         allGrades = repository.allGrades
+        total = repository.total
     }
 
     // Non-blocking

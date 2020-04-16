@@ -34,15 +34,16 @@ class MainActivity : AppCompatActivity() {
             grades?.let { adapter.setGrades(it) }
         })
 
+        gradeViewModel.total.observe(this, Observer { total ->
+            total?.let { findViewById<TextView>(R.id.validation).text = it.toString() }
+        })
+
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
             val intent = Intent(this@MainActivity, NewGradeActivity::class.java)
             startActivityForResult(intent, newGradeActivityRequestCode)
         }
 
-        val validation = findViewById<TextView>(R.id.validation)
-        println(adapter.getTotal())
-        validation.text = adapter.getTotal().toString() // TODO
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
